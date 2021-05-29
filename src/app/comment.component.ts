@@ -72,4 +72,7 @@ export class CommentComponent implements OnInit {
     console.log("FINAL-DATA-LOCAL", (JSON.parse(localStorage.getItem('tabledata'))))
     this.messageService.add({ severity: 'success', summary: 'Added Successfully', detail: 'Notification' });
   }
+   CloseDialog() {
+    this.displaydialog = false;
+  }
 }
