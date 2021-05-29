@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.p-overlaypanel .p-overlaypanel-content {
+    padding: 0;
+}
+ .ui-table {
+      border-radius: 4px;
+    /* .ui-table-thead > tr > th:last-child,
+    .ui-table-tbody > tr > td:last-child { */
+      border-right: none;
+    }
+
+    .ui-card {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 0.497em;
+    border: 1px solid #cecece;
+    }
+    .ui-card-title {
+      padding: 0.497em;
+      font-size: 20px;
+      color: #333333;
+      text-transform: uppercase;
+    
+  }
+

@@ -1,0 +1,133 @@
+<p-card>
+  <div class="p-grid">
+
+    <p-table [value]="tabledata" [columns]="selectedColumns">
+      <ng-template pTemplate="caption">
+
+        <div class="p-grid p-col-12 p-align-center">
+          <div class="p-col-11 p-justify-center">
+            Employee Details
+          </div>
+          <div class="p-grid p-justify-end p-2">
+            <button type="button" pButton icon="pi pi-plus" class="mr-22" label="Add"
+              title="Click Here To Add New Employee Detail" (click)="AddNewDetails()"></button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.valueField">
+            <p-sortIcon field="{{col.valueField}}"></p-sortIcon>
+            <div>
+              {{ col.label }}
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns" class="{{col.classes}}">
+            <span title="{{ (row[col.valueField] == '' || row[col.valueField] == null ||
+                                                row[col.valueField] == 'null' ) ? '-' :(row[col.valueField]) }}">
+              {{ (row[col.valueField] == '' || row[col.valueField] == null ||
+              row[col.valueField] == "null" ) ? '-' :(row[col.valueField]) }}
+            </span>
+
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+</p-card>
+
+<p-dialog selectionMode="single" [(visible)]="displaydialog" [baseZIndex]="10000100011" [resizable]="true"
+  [modal]="true" [resizable]="true" class="secondary-dialog" [draggable]="false" [style]="{width: '50vw'}">
+  <p-header>
+    <div class="compare-data-title">
+      <div>
+        Add Employee Details
+      </div>
+
+      <div class="action-buttons">
+        <i class="icons8 icons8-delete"></i>
+      </div>
+    </div>
+  </p-header>
+
+
+  <div class="dialog-content">
+    <div class="ui-grid ui-grid-responsive ui-fluid" style="height: 260px;">
+      <div class="p-grid p-col-12">
+        <form [formGroup]="employeForm" [ngStyle]="{'width':'100%'}">
+          <div class="p-grid p-col-12">
+            <label class="p-col-3">
+              <font style="color: red;">*</font>
+              Name
+            </label>
+            <div>
+              <input type="text" formControlName="name" style="width: 353px;" pInputText
+                placeholder="Please Enter First Name">
+              <span style="color: red;display: block;"
+                *ngIf="submitted && employeForm.controls.name.status == 'INVALID'">Please
+                Enter
+                Name</span>
+            </div>
+
+
+
+          </div>
+          <br>
+          <div class="p-grid p-col-12">
+            <label class="p-col-3">
+              <font style="color: red;">*</font>
+              Email
+            </label>
+            <div>
+              <input type="text" formControlName="emailcontrol" style="width: 353px;" pInputText
+                placeholder="Please Enter Email">
+              <span style="color: red;display: block;"
+                *ngIf="submitted && employeForm.controls.emailcontrol.status == 'INVALID'">
+                please enter a valid email address
+              </span>
+            </div>
+
+          </div>
+          <br>
+          <div class="p-grid p-col-12">
+            <label class="p-col-3">
+              <font style="color: red;">*</font>
+              Comment
+            </label>
+            <div>
+              <!-- <input type="text" style="width: 250px;" rows="3" autoResize="autoResize" style="width: 353px;"
+                formControlName="commentcontrol" pInputTextarea placeholder="Please Enter Comment"> -->
+              <textarea type="text" formControlName="commentcon" rows="3" autoResize="autoResize" style="width: 353px;"
+                pInputText placeholder="Please Enter Comment"></textarea>
+              <span style="color: red;display: block;"
+                *ngIf="submitted &&  employeForm.controls.commentcon.status == 'INVALID' && ! employeForm.controls.commentcon.errors.minlength && ! employeForm.controls.commentcon.errors.maxlength">
+                Please Enter Comment
+              </span>
+              <span style="color: red;display: block;"
+                *ngIf="submitted &&  employeForm.controls.commentcon.errors?.minlength?.actualLength < employeForm.controls.commentcon.errors?.minlength?.requiredLength">
+                Comment must be at least 200 characters long.
+              </span>
+              <span style="color: red;display: block;" *ngIf="submitted &&
+                employeForm.controls.commentcon.errors?.maxlength?.actualLength >
+                employeForm.controls.commentcon.errors?.maxlength?.requiredLength">
+                Comment must be 250 characters long.
+              </span>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="p-grid p-col-12 p-justify-center">
+      <button type="button" pButton icon="pi pi-plus" (click)="onSubmit(employeForm.value)" label="Add"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+<p-toast></p-toast>
