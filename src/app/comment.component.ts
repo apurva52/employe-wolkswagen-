@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from './service/httpservice.service';
 import { Table } from './service/data-module';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -35,7 +34,6 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     const me = this;
     me.selectedColumns = Table.headers[0].cols;
-    // this.loginName = localStorage.getItem('loginName') || '';
   }
   GetData() {
     this.http.getData().subscribe((res: []) => {
@@ -49,7 +47,6 @@ export class CommentComponent implements OnInit {
     this.displaydialog = true;
   }
   setForm() {
-    //this.submitted = false;
     this.employeForm = this.fb.group({
       name: [{ value: null, disabled: false }, [Validators.required]],
       commentcon: [{ value: null, disabled: false }, [Validators.required, Validators.maxLength(250), Validators.minLength(200)]],
