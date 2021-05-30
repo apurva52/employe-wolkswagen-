@@ -18,7 +18,7 @@
       </ng-template>
       <ng-template pTemplate="header" let-columns>
         <tr>
-          <th *ngFor="let col of columns" [pSortableColumn]="col.valueField">
+          <th *ngFor="let col of columns" [pSortableColumn]="col.valueField" class="{{col.classes}}">
             <p-sortIcon field="{{col.valueField}}"></p-sortIcon>
             <div>
               {{ col.label }}
