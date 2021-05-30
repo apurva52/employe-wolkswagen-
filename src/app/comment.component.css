@@ -81,3 +81,12 @@
 .text-center{
 text-align: center !important;
 }
+
+:host>>> .ui-table .ui-table-tbody > tr{
+    background: rgb(195 215 231 / 19%);
+    font-size:12px;
+}
+:host>>>.ui-table-tbody > tr:nth-child(even){
+    background: rgb(195 215 231 / 19%) !important; 
+       font-size:11px;
+}
