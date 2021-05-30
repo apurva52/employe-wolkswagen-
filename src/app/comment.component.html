@@ -4,11 +4,13 @@
     <p-table [value]="tabledata" [columns]="selectedColumns">
       <ng-template pTemplate="caption">
 
-        <div class="p-grid  p-align-center p-shadow-14" [ngStyle]="{'margin-top':'0px'}">
-          <div class="p-col-11 p-justify-center">
-            Employee Details
+        <div class="p-shadow-14 p-grid p-justify-between p-align-center" [ngStyle]="{'margin-top':'0px'}">
+          <div class="p-col-8">
+            <div class="p-grid p-col-8 p-align-center">
+              Employee Details
+            </div>
           </div>
-          <div class="p-col-1 p-justify-end p-2">
+          <div class="p-col-4" [ngStyle]="{'text-align':'right'}">
             <button type="button" pButton icon="pi pi-plus" class="mr-22" label="Add"
               title="Click Here To Add New Employee Detail" (click)="AddNewDetails()"></button>
           </div>
@@ -116,7 +118,7 @@
               <span style="color: red;display: block;" *ngIf="submitted &&
                 employeForm.controls.commentcon.errors?.maxlength?.actualLength >
                 employeForm.controls.commentcon.errors?.maxlength?.requiredLength">
-                 maximum 250 characters are allowed
+                maximum 250 characters are allowed
               </span>
             </div>
 
