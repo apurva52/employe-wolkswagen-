@@ -5,7 +5,7 @@ export const Table: any = {
                 {
                     label: 'Body',
                     valueField: 'body',
-                    classes: 'text-left',
+                   classes: 'text-center',
                     selected: true,
                     filter: {
                         isFilter: true,
