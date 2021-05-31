@@ -43,40 +43,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-:host>>>.p-datatable .p-datatable-tbody > tr {
-    background: #ffffff;
-    color: #495057;
-    transition: box-shadow 0.2s;
-    outline-color: #b7e0b8;
-    padding: .25rem .55rem;
-    font-size: 14px;
-    align-items: center;
-    background-color: #c3d7ea30;
-    justify-content: center;
-    font-weight: 500;
-}
 
-:host>>>.p-datatable .p-datatable-thead > tr > th {
-
-    text-align: left;
-    padding: 1rem 1rem;
-    border: 1px solid #e9ecef;
-    border-width: 0 0 1px 0;
-    font-weight: 600;
-    color: #495057;
-    background: #f8f9fa;
-    transition: box-shadow 0.2s;
-    padding: .571em .857em;
-    border: none;
-    border-right: 1px solid var(--table-head-color);
-    font-weight: 500;
-    color: var(--table-text-color);
-    background-color: var(--table-head-bg-color);
-    font-size: 12px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-}
 
 .text-center{
 text-align: center !important;
